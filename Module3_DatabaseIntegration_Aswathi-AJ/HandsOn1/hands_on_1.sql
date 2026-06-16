@@ -9,7 +9,6 @@ department_name VARCHAR(100) NOT NULL,
 hod_name VARCHAR(100),
 budget DECIMAL(12,2)
 );
-SHOW TABLES;
 DESCRIBE departments;
 
 create table students(
@@ -107,19 +106,22 @@ select count(*) from enrollments;
 select count(*) from professors;
 
 /*
-Normalization Verification
+Normalization Analysis
 
-1NF:
-- All tables contain atomic values.
+1NF Compliance:
+- All tables contain atomic values only.
 - No column stores multiple values in a single cell.
+- Each row-column intersection contains exactly one value.
 
-2NF:
-- All non-key attributes depend on the entire primary key.
-- Student information is separated from enrollment information.
+2NF Compliance:
+- All tables are in 1NF.
+- Non-key attributes are fully dependent on their primary keys.
+- Student information is separated from enrollment information to avoid partial dependency.
 
-3NF:
-- No transitive dependencies exist.
-- Department information is stored only in the departments table.
-- Students, Courses, and Professors reference departments using department_id.
-- Redundant department data is avoided.
+3NF Compliance:
+- All tables are in 2NF.
+- No transitive dependencies exist between non-key attributes.
+- Department details are stored only in the departments table.
+- Students, Courses, and Professors reference departments through department_id.
+- Data redundancy is minimized and update anomalies are avoided.
 */
