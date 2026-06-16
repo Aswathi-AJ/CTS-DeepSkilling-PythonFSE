@@ -1,15 +1,15 @@
 # Hands-On 1
 
-Topics:
-- Database Schema Design
+## Task 1 Completed
+Created:
+- departments
+- students
+- courses
+- enrollments
+- professors
+Concepts Learned:
 - DDL
-- Normalization
-- Primary Keys
-- Foreign Keys
+- Primary Key
+- Foreign Key
+- Unique Constraint
 - Referential Integrity
-
-Technology:
-- MySQL
-
-Status:
-- In Progress
