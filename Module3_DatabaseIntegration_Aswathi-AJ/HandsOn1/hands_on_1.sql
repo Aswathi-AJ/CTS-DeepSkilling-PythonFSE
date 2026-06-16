@@ -105,7 +105,7 @@ select count(*) from courses;
 select count(*) from enrollments;
 select count(*) from professors;
 
-/*
+/* 
 Normalization Analysis
 
 1NF Compliance:
@@ -125,3 +125,35 @@ Normalization Analysis
 - Students, Courses, and Professors reference departments through department_id.
 - Data redundancy is minimized and update anomalies are avoided.
 */
+
+alter table students
+add column phone_number varchar(15);
+describe students;
+
+alter table courses
+add column max_seats int default 60;
+select column_name, data_type
+from information_schema.columns
+where table_schema = 'college_db'
+and table_name = 'courses';
+
+alter table enrollments
+add constraint chk_grade
+check (grade in ('A','B','C','D','F') or grade is null);
+insert into enrollments(student_id, course_id, enrollment_date, grade)values
+(1,1,'2024-01-01','X');
+-- Error Code: 3819. Check constraint 'chk_grade' is violated.
+
+alter table departments
+change hod_name head_of_dept varchar(100);
+select column_name
+from information_schema.columns
+where table_schema = 'college_db'
+and table_name = 'departments';
+
+alter table students
+drop column phone_number;
+select column_name
+from information_schema.columns
+where table_schema = 'college_db'
+and table_name = 'students';
