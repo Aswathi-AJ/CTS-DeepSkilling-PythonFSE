@@ -54,3 +54,10 @@ select count(*) from enrollments;
 select * from enrollments where grade is null;
 set sql_safe_updates=0;
 delete from enrollments where grade is null;
+
+
+select * from students where enrollment_year=2022 order by last_name;
+select * from courses where credits >3 order by credits desc;
+select * from professors where salary between 80000 and 95000;
+select * from students where email like '%@college.edu';
+select enrollment_year,count(*) from students group by enrollment_year;
