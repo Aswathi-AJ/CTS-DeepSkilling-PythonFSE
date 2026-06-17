@@ -2,28 +2,54 @@
 
 ## Task 1: Insert, Update and Delete Data
 
-### Operations Performed
-
-* Inserted sample data into all five tables.
-* Added two additional student records.
-* Updated the grade of student_id = 5 for course_id = 1 from 'C' to 'B'.
-* Deleted enrollments where grade was NULL.
+* Inserted sample data into all tables.
+* Added two additional students.
+* Updated a student's grade.
+* Deleted enrollments with NULL grades.
 * Verified row counts using COUNT(*).
 
-### Concepts Practiced
+## Task 2: Single Table Queries and Filtering
+
+* Retrieved students enrolled in 2022.
+* Filtered courses with credits greater than 3.
+* Retrieved professors within a salary range using BETWEEN.
+* Used LIKE to filter email addresses.
+* Counted students grouped by enrollment year.
+
+## Task 3: Multi-Table Joins
+
+* Joined students with departments.
+* Joined enrollments, students, and courses.
+* Used LEFT JOIN to find students without enrollments.
+* Displayed course-wise enrollment counts.
+* Listed departments with professors and salaries.
+
+## Task 4: Aggregations and Grouping
+
+* Calculated enrollments per course.
+* Calculated average professor salary per department.
+* Filtered departments by budget.
+* Generated grade distribution for a course.
+* Used HAVING with GROUP BY to filter aggregated results.
+
+## Concepts Practiced
 
 * INSERT
 * UPDATE
 * DELETE
-* WHERE Clause
-* Data Validation
-* COUNT(*)
+* SELECT
+* WHERE
+* ORDER BY
+* BETWEEN
+* LIKE
+* INNER JOIN
+* LEFT JOIN
+* COUNT
+* AVG
+* GROUP BY
+* HAVING
+* Aggregate Reporting
 
-### Verification
+## Status
 
-* Students table contains 10 rows.
-* Enrollments table contains only records with non-NULL grades.
-
-### Status
-
-Task 1 Completed.
+Hands-On 2 Completed.
