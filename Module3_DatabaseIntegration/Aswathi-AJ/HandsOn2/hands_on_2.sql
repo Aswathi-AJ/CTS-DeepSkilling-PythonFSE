@@ -84,7 +84,7 @@ where e.student_id is null;
 select c.course_name,count(e.student_id)as enrollment_count
 from courses c left join enrollments e
 on c.course_id = e.course_id
-group by c.course_id,c.course_name;
+group by c.course_name;
 
 select d.department_name,p.prof_name,p.salary
 from departments d left join professors p
@@ -95,12 +95,12 @@ on d.department_id=p.department_id;
 select c.course_name,count(e.enrollment_id)as enrollment_count
 from courses c left join enrollments e
 on c.course_id = e.course_id
-group by c.course_id,c.course_name;
+group by c.course_name;
 
 select d.department_name,round(avg(p.salary),2)as average_salary
 from departments d left join professors p
 on d.department_id = p.department_id
-group by d.department_name,d.department_id;
+group by d.department_name;
 
 select * from departments where budget>600000;
 

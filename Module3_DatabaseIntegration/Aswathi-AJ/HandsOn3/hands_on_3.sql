@@ -38,3 +38,24 @@ from professors
 group by department_id
 )dept_avg
 where avg_salary > 85000;
+
+-- TASK 2
+
+create view vw_student_enrollment_summary as
+select s.student_id,concat(s.first_name,' ',s.last_name) as student_name,d.department_name,count(e.course_id) as total_courses,
+round(avg(
+case
+when e.grade='A' then 4
+when e.grade='B' then 3
+when e.grade='C' then 2
+when e.grade='D' then 1
+when e.grade='F' then 0
+end
+),2) as gpa
+from students s join departments d
+on s.department_id=d.department_id
+left join enrollments e
+on s.student_id=e.student_id
+group by s.student_id,student_name,d.department_name;
+
+select * from vw_student_enrollment_summary;
