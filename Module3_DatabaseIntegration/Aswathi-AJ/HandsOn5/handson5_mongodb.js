@@ -41,3 +41,83 @@ db.feedback.find({ needs_review: true })
 // Question 70
 db.feedback.deleteMany({ semester: "2021-EVEN" })
 db.feedback.find({ semester: "2021-EVEN" })
+
+//TASK 3
+
+// Question 71
+db.feedback.aggregate([
+{
+    $match: {
+        semester: "2022-ODD"
+    }
+},
+{
+    $group: {
+        _id: "$course_code",
+        avg_rating: { $avg: "$rating" },
+        feedback_count: { $sum: 1 }
+    }
+},
+{
+    $sort: {
+        avg_rating: -1
+    }
+}
+])
+
+// Question 72
+db.feedback.aggregate([
+{
+    $match: {
+        semester: "2022-ODD"
+    }
+},
+{
+    $group: {
+        _id: "$course_code",
+        avg_rating: { $avg: "$rating" },
+        feedback_count: { $sum: 1 }
+    }
+},
+{
+    $project: {
+        _id: 0,
+        course_code: "$_id",
+        average_rating: {
+            $round: ["$avg_rating", 1]
+        },
+        feedback_count: 1
+    }
+},
+{
+    $sort: {
+        average_rating: -1
+    }
+}
+])
+
+// Question 73
+db.feedback.aggregate([
+{
+    $unwind: "$tags"
+},
+{
+    $group: {
+        _id: "$tags",
+        count: { $sum: 1 }
+    }
+},
+{
+    $sort: {
+        count: -1
+    }
+}
+])
+
+// Question 74
+db.feedback.createIndex(
+    { course_code: 1 }
+)
+db.feedback.find(
+    { course_code: "CS101" }
+).explain("executionStats")
