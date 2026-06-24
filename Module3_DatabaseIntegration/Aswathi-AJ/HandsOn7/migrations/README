@@ -1,0 +1,17 @@
+Generic single-database configuration.
+# HandsOn 7 – Alembic Migrations
+
+## Objective
+
+Learn database version control and schema migration using Alembic with SQLAlchemy.
+
+## Tasks Completed
+
+* Configured Alembic for MySQL database
+* Generated and applied migrations
+* Added `is_active` column to Student table
+* Created `CourseSchedule` table
+* Viewed migration history
+* Performed migration rollback and recovery
+
+

@@ -1,10 +1,12 @@
 #TASK 1
 
 from sqlalchemy import (
+    Boolean,
     create_engine,
     Column,
     Integer,
     String,
+    Time,
     Date,
     Numeric,
     ForeignKey
@@ -48,9 +50,13 @@ class Student(Base):
     email = Column(String(100))
     date_of_birth = Column(Date)
     enrollment_year = Column(Integer)
+
+    is_active = Column(Boolean, default=True)
+    
     department_id = Column(Integer,ForeignKey("departments.department_id"))
     department = relationship("Department",back_populates="students")
     enrollments = relationship("Enrollment",back_populates="student")
+
 
 class Professor(Base):
     __tablename__ = "professors"
@@ -71,6 +77,15 @@ class Course(Base):
     department_id = Column(Integer,ForeignKey("departments.department_id"))
     department = relationship("Department",back_populates="courses")
     enrollments = relationship("Enrollment",back_populates="course")
+
+class CourseSchedule(Base):
+    __tablename__ = "course_schedules"
+    schedule_id = Column(Integer,primary_key=True)
+    course_id = Column(Integer,ForeignKey("courses.course_id"))
+    day_of_week = Column(String(20))
+    start_time = Column(Time)
+    end_time = Column(Time)
+    course = relationship("Course")
 
 class Enrollment(Base):
     __tablename__ = "enrollments"
