@@ -5,9 +5,27 @@ from courses import db
 
 def create_app():
     app = Flask(__name__)
+
     app.config.from_object(Config)
+
     db.init_app(app)
+
     app.register_blueprint(courses_bp)
+
+    @app.errorhandler(404)
+    def not_found(error):
+        return {
+            "success": False,
+            "message": "Resource not found"
+        }, 404
+
+    @app.errorhandler(500)
+    def internal_server_error(error):
+        return {
+            "success": False,
+            "message": "Internal Server Error"
+        }, 500
+
     return app
 
 app = create_app()
