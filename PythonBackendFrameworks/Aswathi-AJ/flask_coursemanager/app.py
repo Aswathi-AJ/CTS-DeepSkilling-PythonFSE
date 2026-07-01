@@ -2,14 +2,14 @@ from flask import Flask
 from config import Config
 from courses.routes import courses_bp
 from courses import db
+from flask_migrate import Migrate
+from courses.models import Department, Course, Student, Enrollment
 
 def create_app():
     app = Flask(__name__)
-
     app.config.from_object(Config)
-
     db.init_app(app)
-
+    migrate = Migrate(app, db)
     app.register_blueprint(courses_bp)
 
     @app.errorhandler(404)
