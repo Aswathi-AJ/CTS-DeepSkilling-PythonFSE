@@ -1,0 +1,134 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+header{
+    background-color: #12164A;
+    color: white;
+    padding: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.site-title{
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+}
+.menu-icon{
+    font-size: 30px;
+    cursor: pointer;
+}
+nav{
+    display: none;
+}
+nav ul{
+    list-style: none;
+}
+nav ul li{
+    margin: 10px 0;
+}
+nav ul li a{
+    text-decoration: none;
+    color: white;
+}
+nav ul li a:hover{
+    color: rgb(12,106,113);
+}
+#hero{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 40vh;
+    padding: 30px;
+}
+button{
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: 2px solid #12164A;
+    background: white;
+    cursor: pointer;
+}
+button:hover{
+    background: #12164A;
+    color: white;
+}
+#stats{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px;
+}
+.stat-item{
+    flex: 1;
+    background: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 8px lightgray;
+}
+#courses{
+    padding: 20px;
+}
+#courses h2{
+    margin-bottom: 20px;
+}
+.course-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+.course-card{
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px lightgray;
+
+    min-height: 180px;
+
+    align-self: stretch;
+}
+footer{
+    background-color: #12164A;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+}
+@media (min-width:768px){
+    .menu-icon{
+        display: none;
+    }
+    nav{
+        display: block;
+    }
+    nav ul{
+        display: flex;
+        gap: 20px;
+    }
+    nav ul li{
+        margin: 0;
+    }
+    #stats{
+        flex-direction: row;
+    }
+    .course-grid{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media (min-width:1024px){
+
+    .course-grid{
+        grid-template-columns: repeat(3,1fr);
+    }
+    #hero{
+        padding: 80px;
+    }
+}

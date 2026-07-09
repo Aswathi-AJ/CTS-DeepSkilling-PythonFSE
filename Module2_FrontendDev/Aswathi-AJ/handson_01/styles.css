@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+header{
+    background-color: #12164a;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav ul{
+    list-style: none;
+    display: flex;
+}
+nav ul li{
+    margin-left: 20px;
+}
+nav ul li a{
+    text-decoration: none;
+    color: rgb(247, 250, 253);
+}
+nav ul li a:hover{
+    color: rgb(13, 121, 129);
+}
+#hero{
+    text-align: center;
+    padding: 60px;
+}
+button{
+    padding: 10px 20px;
+    border: 2px solid rgb(12, 106, 113);
+    background-color: white;
+    cursor: pointer;
+    margin-top: 15px;
+}
+button:hover{
+    background-color: #12164a;
+    color: white;
+}
+#courses h2{
+    margin-left: 20px;
+}
+.course-card{
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px lightgray;
+    margin: 20px;
+}
+footer{
+    background-color: #12164a;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+}
