@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Portal - Hands-On 4: Async JS & API Integration</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Student Portal</h1>
+    <nav>
+      <ul>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">Notifications</a></li>
+        <li><a href="#">Profile</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="courses-section">
+      <h2 class="section-title">📚 Enrolled Courses (Simulated Async Load)</h2>
+      <div id="course-loading" class="loading-box">
+        <div class="spinner"></div>
+        <span>Loading courses...</span>
+      </div>
+      <div id="course-grid" class="course-grid"></div>
+      <p id="total-credits" style="margin-top: 1rem; font-weight: bold; color: #a5b4fc;"></p>
+    </section>
+
+    <section id="notifications-section">
+      <h2 class="section-title">🔔 Portal Notifications (Fetch API)</h2>
+      <div id="notifications-loading" class="loading-box" style="display: none;">
+        <div class="spinner"></div>
+        <span>Fetching notifications...</span>
+      </div>
+      <div id="notifications-container" class="notifications-grid"></div>
+    </section>
+
+    <section id="error-simulation-section">
+      <h2 class="section-title">⚠️ Error Handling Simulation (404 Test)</h2>
+      <div id="error-container"></div>
+    </section>
+
+    <section id="axios-section">
+      <h2 class="section-title">⚡ User Posts (Axios Integration)</h2>
+      <div id="axios-loading" class="loading-box" style="display: none;">
+        <div class="spinner"></div>
+        <span>Fetching user 1 posts via Axios...</span>
+      </div>
+      <div id="axios-container" class="notifications-grid"></div>
+    </section>
+
+    <section id="console-section">
+      <h2 class="section-title">💻 Live Execution Log</h2>
+      <div id="console-output" class="console-box"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Student Portal. Digital Nurture 5.0 - Frontend Development Module 2.</p>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
