@@ -1,7 +1,7 @@
 import asyncio
 
 from database import engine, Base
-from models import Course
+from models import *
 
 
 async def init_db():
